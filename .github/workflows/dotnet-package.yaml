@@ -31,9 +31,10 @@ jobs:
         filename: 'MyWeb.zip'
         exclusions: '*.git*'
     - name: Upload Release
-      uses: ncipollo/release-action@v1
+      uses: svenstaro/upload-release-action@v2
       with:
-       artifacts: '.publish/MyWeb.zip,*.json'
-       token: ${{ secrets.GITHUB_TOKEN }}
-       body: 'hello world!'
-       tag: 0.1.0
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: '.publish/MyWeb.zip'
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "This is my release text"
