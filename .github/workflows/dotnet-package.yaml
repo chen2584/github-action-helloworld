@@ -29,11 +29,11 @@ jobs:
       with:
         path: '.publish'
         filename: 'MyWeb.zip'
-        exclustions: '*.git*'
+        exclusions: '*.git*'
     - name: Upload Release
       uses: ncipollo/release-action@v1
       with:
        artifacts: '.publish/MyWeb.zip'
        token: ${{ secrets.GITHUB_TOKEN }}
        body: 'hello world!'
-       tag: 0.1.1
+       tag: 0.1.0
