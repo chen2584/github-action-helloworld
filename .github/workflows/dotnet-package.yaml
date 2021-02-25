@@ -33,7 +33,7 @@ jobs:
     - name: Upload Release
       uses: ncipollo/release-action@v1
       with:
-       artifaces: '.publish/MyWeb.zip'
+       artifacts: '.publish/MyWeb.zip'
        token: ${{ secrets.GITHUB_TOKEN }}
        body: 'hello world!'
        tag: 0.1.1
