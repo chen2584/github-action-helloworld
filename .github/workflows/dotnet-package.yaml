@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore src/MyWeb
     - name: Build
-      run: dotnet build --configuration Release --no-restore -o .publish src/MyWeb
+      run: dotnet publish -c Release --no-restore -o .publish src/MyWeb
     - name: Test
       run: dotnet test --no-restore src/MyWeb.Tests
     - name: Archive Release
