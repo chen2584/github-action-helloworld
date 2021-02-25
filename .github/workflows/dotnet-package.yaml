@@ -35,6 +35,6 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: 'MyWeb.zip'
-        tag: ${{ github.ref }}
+        tag: 0.1.0
         overwrite: true
         body: "This is my release text"
