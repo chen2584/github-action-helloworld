@@ -20,10 +20,10 @@ jobs:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
     - name: Install dependencies
       run: dotnet restore src/MyWeb
-    - name: Build
-      run: dotnet publish -c Release --no-restore -o .publish src/MyWeb
     - name: Test
       run: dotnet test --no-restore src/MyWeb.Tests
+    - name: Publish
+      run: dotnet publish -c Release --no-restore -o .publish src/MyWeb
     - name: Archive Release
       uses: thedoctor0/zip-release@master
       with:
