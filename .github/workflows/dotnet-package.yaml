@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore src/MyWeb
     - name: Build
-      run: dotnet build --configuration Release --no-restore src/MyWeb
+      run: dotnet build --configuration Release --no-restore -o .publish src/MyWeb
     - name: Test
       run: dotnet test --no-restore src/MyWeb.Tests
     - name: Archive Release
@@ -32,7 +32,6 @@ jobs:
     - name: Upload Release
       uses: ncipollo/release-action@v1
       with:
-       artifaces: 'MyWeb.zip'
+       artifaces: '.publish/MyWeb.zip'
        token: ${{ secrets.GITHUB_TOKEN }}
        body: 'hello world!'
-       tag: 0.1.0
