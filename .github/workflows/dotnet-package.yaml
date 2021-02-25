@@ -35,3 +35,4 @@ jobs:
        artifaces: '.publish/MyWeb.zip'
        token: ${{ secrets.GITHUB_TOKEN }}
        body: 'hello world!'
+       tag: 0.1.1
