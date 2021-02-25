@@ -23,4 +23,14 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore src/MyWeb
     - name: Test
-      run: dotnet test src/MyWeb.Tests
+      run: dotnet test --no-restore src/MyWeb.Tests
+    - name: Archive Release
+      uses: thedoctor0/zip-release@master
+      with:
+        filename: 'MyWeb.zip'
+        exclustions: '*.git*'
+    - name: Upload Release
+      uses: ncipollo/release-action@v1
+      with:
+       artifaces: 'MyWeb.zip'
+       token: ${{ secrets.GITHUB_TOKEN }}
