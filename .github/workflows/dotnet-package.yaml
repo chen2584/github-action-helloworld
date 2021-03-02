@@ -25,7 +25,7 @@ jobs:
     - name: Publish
       run: dotnet publish -c Release --no-restore -o .publish src/MyWeb
     - name: Zip file
-      run: Compress-Archive -Path ./publish/* -DestinationPath MyWeb.zip
+      run: Compress-Archive -Path .publish/* -DestinationPath MyWeb.zip
     # - name: Archive Release
     #   uses: thedoctor0/zip-release@master
     #   with:
