@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: chen2584
+    runs-on: ubuntu-16.04
     # strategy:
       # matrix:
         # dotnet-version: [ '5.0.x' ]
@@ -24,14 +24,14 @@ jobs:
       run: dotnet test --no-restore src/MyWeb.Tests
     - name: Publish
       run: dotnet publish -c Release --no-restore -o .publish src/MyWeb
-    - name: Zip file
-      run: Compress-Archive -Path .publish/* -DestinationPath MyWeb.zip
-    # - name: Archive Release
-    #   uses: thedoctor0/zip-release@master
-    #   with:
-    #     path: '.publish'
-    #     filename: 'MyWeb.zip'
-    #     exclusions: '*.git*'
+    # - name: Zip file
+    #   run: Compress-Archive -Path .publish/* -DestinationPath MyWeb.zip
+    - name: Archive Release
+      uses: thedoctor0/zip-release@master
+      with:
+        path: '.publish'
+        filename: 'MyWeb.zip'
+        exclusions: '*.git*'
     - name: Upload Release
       uses: svenstaro/upload-release-action@v2
       with:
