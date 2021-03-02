@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: [chen2584, chen2585]
+    runs-on: self-hosted
     # strategy:
       # matrix:
         # dotnet-version: [ '5.0.x' ]
