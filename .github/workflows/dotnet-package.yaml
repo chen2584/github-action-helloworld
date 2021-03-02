@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: chen2584
+    runs-on: ubuntu-16.04
     # strategy:
       # matrix:
         # dotnet-version: [ '5.0.x' ]
@@ -16,8 +16,8 @@ jobs:
       uses: actions/setup-dotnet@v1.6.0
       with:
         dotnet-version: '5.0.100'
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      # env:
+      #   ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
     - name: Install dependencies
       run: dotnet restore src/MyWeb
     - name: Test
